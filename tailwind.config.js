@@ -70,7 +70,7 @@ module.exports = {
         },
 
         borderRadius: {
-            '25': '2.5rem'
+            '15': '1.5rem'
         }
     },
 

@@ -4,9 +4,9 @@
             Rick & Morty Fan Site
         </div>
         <div class="md:flex-row md:h-80 md:text-15 md:justify-center flex flex-col items-center">
-            <router-link to="/" class="p-10 m-30">Episodes</router-link>
-            <router-link to="/about" class="p-10 m-30">Characters</router-link>
-            <router-link to="/about" class="p-10 m-30">Favorites</router-link>
+            <router-link to="/" class="p-10 m-20 rounded-15 icon-episodes">Episodes</router-link>
+            <router-link to="/about" class="p-10 m-20 rounded-15 icon-characters">Characters</router-link>
+            <router-link to="/about" class="p-10 m-20 rounded-15 icon-favorites">Favorites</router-link>
         </div>
     </div>
 </template>
@@ -17,8 +17,22 @@ a {
     color: #fff;
 }
 
-a::before{
+.icon-favorites:before {
+    font-family: 'icomoon';
+    content: "\e900";
+    margin: 0.3rem;
+}
 
+.icon-characters:before {
+    font-family: 'icomoon';
+    content: "\e902";
+    margin: 0.3rem;
+}
+
+.icon-episodes:before {
+    font-family: 'icomoon';
+    content: "\e901";
+    margin: 0.3rem;
 }
 
 .router-link-exact-active {
