@@ -3,9 +3,9 @@ module.exports = {
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
-            // backgroundImage: theme => ({
-            //     'bg-image': "url('assets/images/curve-bg.svg')"
-            // })
+            backgroundImage: theme => ({
+                'rick-morty-bg': "url('assets/images/background.png')"
+            })
         },
 
         screens: {
@@ -25,9 +25,10 @@ module.exports = {
                 DEFAULT: '#3B7BC6'
             },
             yellow: {
-                DEFAULT: '#F0E260'
+                DEFAULT: '#E3AE00'
             },
             black: {
+                light: '#363636',
                 DEFAULT: '#000000'
             }
         },
@@ -48,6 +49,7 @@ module.exports = {
             '127': '12.7rem',
             '150': '15rem',
             '195': '19.5rem',
+            '200': '20rem',
             '250': '20.5rem',
             '300': '30rem',
             '325': '32.5rem',

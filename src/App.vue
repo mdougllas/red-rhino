@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="flex">
+    <div id="app" class="md:flex-col-reverse md:h-screen md:bg-right flex bg-rick-morty-bg bg-cover bg-center">
         <Nav />
         <router-view/>
     </div>
