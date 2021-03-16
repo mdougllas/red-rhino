@@ -5,8 +5,8 @@
         </div>
         <div class="md:flex-row md:h-80 md:text-15 md:justify-center flex flex-col items-center">
             <router-link to="/" class="p-10 m-20 rounded-15 icon-episodes">Episodes</router-link>
-            <router-link to="/about" class="p-10 m-20 rounded-15 icon-characters">Characters</router-link>
-            <router-link to="/about" class="p-10 m-20 rounded-15 icon-favorites">Favorites</router-link>
+            <router-link to="/characters" class="p-10 m-20 rounded-15 icon-characters">Characters</router-link>
+            <router-link to="/favorites" class="p-10 m-20 rounded-15 icon-favorites">Favorites</router-link>
         </div>
     </div>
 </template>

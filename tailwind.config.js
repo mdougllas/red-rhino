@@ -1,5 +1,5 @@
 module.exports = {
-    // purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+    purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
@@ -9,6 +9,7 @@ module.exports = {
         },
 
         screens: {
+            '3xl': {'max': '1920px'},
             '2xl': {'max': '1535px'},
             'xl': {'max': '1279px'},
             'lg': {'max': '1023px'},
@@ -70,7 +71,8 @@ module.exports = {
         },
 
         borderRadius: {
-            '15': '1.5rem'
+            '15': '1.5rem',
+            '25': '2.5rem',
         }
     },
 
