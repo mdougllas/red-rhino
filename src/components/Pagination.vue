@@ -1,6 +1,6 @@
 <template>
-    <div class="text-center mb-40">
-        <ul v-if="data.info" class="flex justify-center text-15">
+    <div class="text-center my-40">
+        <ul v-if="data.info" class="flex flex-wrap justify-center text-15">
             <li class="p-5">
                 <button @click="goTo">❮❮</button>
             </li>
@@ -27,49 +27,39 @@
 <script>
 export default {
     name: 'Pagination',
-    props: ['data'],
-
-    data() {
-        return {
-            pages: 0
-        }
-    },
+    props: ['data', 'asset'],
 
     methods: {
         goTo(e) {
             const url = this.data.info.next ? this.data.info.next : this.data.info.prev
             const attributes = url.replace('https://rickandmortyapi.com/api/', '')
-            const asset = attributes.substring(0, attributes.indexOf('?'))
+            const fetchType = attributes.substring(0, attributes.indexOf('?'))
+            const action = this.asset === 1 ? 'fetchEpisodes' : 'fetchCharacters'
 
             switch(e.target.innerText){
                 case '❮❮':
-                    this.$store.dispatch('fetchEpisodes', `${ asset }?page=1`)
+                    this.$store.dispatch(action, `${ fetchType }?page=1`)
                 break
 
                 case '❮':
                     const prev = this.data.info.prev.replace('https://rickandmortyapi.com/api/', '')
-                    this.$store.dispatch('fetchEpisodes', prev)
+                    this.$store.dispatch(action, prev)
                 break
 
                 case '❯':
                     const next = this.data.info.next.replace('https://rickandmortyapi.com/api/', '')
-                    this.$store.dispatch('fetchEpisodes', next)
+                    this.$store.dispatch(action, next)
                 break
 
                 case '❯❯':
                     const last = this.data.info.pages
-                    this.$store.dispatch('fetchEpisodes', `${ asset }?page=${ last }`)
-                    console.log(last)
+                    this.$store.dispatch(action, `${ fetchType }?page=${ last }`)
                 break
 
                 default:
-                    this.$store.dispatch('fetchEpisodes', `${ asset }?page=${ e.target.innerText }`)
+                    this.$store.dispatch(action, `${ fetchType }?page=${ e.target.innerText }`)
             }
         }
-    },
-
-    created(){
-        console.log('Data', this.data)
     }
 }
 </script>

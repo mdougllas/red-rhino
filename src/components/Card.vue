@@ -3,18 +3,19 @@
             <div class="h-400">
                 <img
                     class="rounded-t-25 bg-image"
-                    :src="getAvatar()"
-                    alt="Rick & Morty"
+                    :src="asset === 1 ? getAvatar() : data.image"
+                    :alt="asset === 1 ? 'Rick & Morty' : data.name"
                 />
             </div>
             <div class="flex justify-center mt-20 text-22 font-semibold">
                 {{ data.name }}
             </div>
             <div class="flex justify-center mt-10 text-18">
-                {{ data.episode }}
+                {{ asset === 1 ? data.episode : data.species }}
             </div>
             <div class="flex justify-center mt-10 text-18">
-                {{ data.air_date }}
+                {{ asset === 1 ? data.air_date : data.gender }}
+                <button :class="favorite ? 'text-red' : 'text-gray'" class="ml-40 icon-favorites">Favorite</button>
             </div>
             <div class="flex justify-center mt-20">
                 <Button text="DETAILS" target=test />
@@ -27,8 +28,14 @@ import Button from '@/components/Button.vue'
 
 export default {
     name: 'Card',
-    props: ['data'],
+    props: ['data', 'asset'],
     components: { Button },
+
+    data() {
+        return {
+            favorite: false
+        }
+    },
 
     methods: {
         getAvatar() {
@@ -41,3 +48,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.icon-favorites:before {
+    font-family: 'icomoon';
+    content: "\e900";
+    margin: 0.3rem;
+}
+</style>

@@ -1,13 +1,13 @@
 <template>
     <div class="w-full h-full">
         <div class="w-full h-screen pt-60 overflow-scroll">
-            <Pagination :data="episodes" />
+            <Pagination :data="episodes" :asset="1" />
             <div class="md:mt-60 flex flex-wrap justify-center">
                 <div v-for="item in episodes.results" :key="item.id">
-                    <Card :data="item" />
+                    <Card :data="item" :asset="1" />
                 </div>
             </div>
-            <Pagination :data="episodes" />
+            <Pagination :data="episodes" :asset="1" />
         </div>
     </div>
 </template>
