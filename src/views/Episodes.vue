@@ -1,7 +1,7 @@
 <template>
     <div class="w-full h-full">
         <div class="w-full h-screen pt-60 overflow-scroll">
-            <div class="flex flex-wrap justify-center">
+            <div class="md:mt-60 flex flex-wrap justify-center">
                 <Card />
             </div>
             <Pagination :asset="1" />

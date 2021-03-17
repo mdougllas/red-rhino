@@ -16,7 +16,6 @@ export default {
             RickAndMortyApi.get(`/episode/${ payload }`)
             .then(res => {
                 commit('setEpisodes', res.data)
-                console.log(res)
             })
         }
     },
