@@ -15,7 +15,12 @@
             </div>
             <div class="flex justify-center mt-10 text-18">
                 {{ asset === 1 ? data.air_date : data.gender }}
-                <button :class="favorite ? 'text-red' : 'text-gray'" class="ml-40 icon-favorites">Favorite</button>
+                <button
+                v-if=" asset === 1"
+                    :class="favorites.includes(data.id) ? 'text-red' : 'text-gray'"
+                    class="ml-40 icon-favorites"
+                    @click="checkFavorite"
+                >Favorite</button>
             </div>
             <div class="flex justify-center mt-20">
                 <Button :link="asset === 1 ? data.url : 3" :asset="this.asset" :id="data.id" />
@@ -25,6 +30,7 @@
 
 <script>
 import Button from '@/components/Button.vue'
+import { mapState } from 'vuex'
 
 export default {
     name: 'Card',
@@ -44,7 +50,36 @@ export default {
             }
 
             return `https://rickandmortyapi.com/api/character/avatar/${ randomize(1, 670) }.jpeg`
+        },
+
+        checkFavorite(){
+            if(this.favorites.length < 1){
+                this.add()
+                this.favorite = true
+            } else {
+                if(this.favorites.includes(this.data.id)){
+                    this.remove()
+                    this.favorite = false
+                } else {
+                    this.add()
+                    this.favorite = true
+                }
+            }
+        },
+
+        add() {
+                this.$store.dispatch('fetchFavorites', this.data.id)
+        },
+
+        remove() {
+            this.$store.commit('removeFavorites', this.data.id)
         }
+    },
+
+    computed: {
+        ...mapState({
+            favorites: state => state.favorites.id
+        })
     }
 }
 </script>

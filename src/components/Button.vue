@@ -21,7 +21,6 @@ export default {
                     return `/character/${ this.id }`
 
                     default:
-                        console.log("link", this.link)
                     return this.link.replace('https://rickandmortyapi.com/api', '')
                 }
             }
@@ -30,4 +29,3 @@ export default {
     }
 }
 </script>
-
