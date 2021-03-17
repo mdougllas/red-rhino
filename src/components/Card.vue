@@ -18,7 +18,7 @@
                 <button :class="favorite ? 'text-red' : 'text-gray'" class="ml-40 icon-favorites">Favorite</button>
             </div>
             <div class="flex justify-center mt-20">
-                <Button text="DETAILS" target=test />
+                <Button :link="asset === 1 ? data.url : 3" :asset="this.asset" :id="data.id" />
             </div>
         </div>
 </template>

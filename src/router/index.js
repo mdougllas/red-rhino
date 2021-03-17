@@ -20,6 +20,16 @@ const routes = [
     name: 'Favorites',
     component: () => import(/* webpackChunkName: "favorites" */ '../views/Favorites.vue')
   },
+  {
+    path: '/episode/:id',
+    name: 'EpisodeDetails',
+    component: () => import(/* webpackChunkName: "episodeDetails" */ '../views/EpisodeDetails.vue')
+  },
+  {
+    path: '/character/:id',
+    name: 'CharacterDetails',
+    component: () => import(/* webpackChunkName: "characterDetails" */ '../views/CharacterDetails.vue')
+  },
 ]
 
 const router = new VueRouter({
