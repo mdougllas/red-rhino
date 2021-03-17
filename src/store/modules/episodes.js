@@ -13,7 +13,7 @@ export default {
     },
     actions: {
         fetchEpisodes({ commit }, payload) {
-            RickAndMortyApi.get(`/episode/${ payload }`)
+            RickAndMortyApi.get(`/${ payload }`)
             .then(res => {
                 commit('setEpisodes', res.data)
             })

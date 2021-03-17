@@ -3,18 +3,18 @@
             <div class="h-400">
                 <img
                     class="rounded-t-25 bg-image"
-                    src=""
-                    alt="Test"
+                    :src="getAvatar()"
+                    alt="Rick & Morty"
                 />
             </div>
-            <div class="bg-blue-curve bg-cover bg-bottom w-full h-70 flex justify-center items-center text-24 text-white font-bold tracking-tighter">
-                    test
-            </div>
             <div class="flex justify-center mt-20 text-22 font-semibold">
-                test
+                {{ data.name }}
             </div>
             <div class="flex justify-center mt-10 text-18">
-                test
+                {{ data.episode }}
+            </div>
+            <div class="flex justify-center mt-10 text-18">
+                {{ data.air_date }}
             </div>
             <div class="flex justify-center mt-20">
                 <Button text="DETAILS" target=test />
@@ -27,6 +27,17 @@ import Button from '@/components/Button.vue'
 
 export default {
     name: 'Card',
-    components: { Button }
+    props: ['data'],
+    components: { Button },
+
+    methods: {
+        getAvatar() {
+            function randomize(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+
+            return `https://rickandmortyapi.com/api/character/avatar/${ randomize(1, 670) }.jpeg`
+        }
+    }
 }
 </script>
