@@ -1,26 +1,30 @@
 <template>
     <div class="w-full h-full">
-        <div class="w-full h-screen flex flex-wrap justify-center pt-60 overflow-scroll">
-            <Card />
+        <div class="w-full h-screen pt-60 overflow-scroll">
+            <div class="flex flex-wrap justify-center">
+                <Card />
+            </div>
+            <Pagination :asset="1" />
         </div>
     </div>
 </template>
 
 <script>
 import Card from '@/components/Card.vue'
+import Pagination from '@/components/Pagination.vue'
 
 export default {
     name: 'Episodes',
-    components: { Card },
+    components: { Card, Pagination },
 
     data() {
         return {
-            test: "test"
+            test: this.episodes
         }
     },
 
     created() {
-        this.$store.dispatch('fetchEpisodes', '')
+        this.$store.dispatch('fetchEpisodes', '#')
     }
 }
 </script>
