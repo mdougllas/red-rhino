@@ -1,5 +1,3 @@
-# red-rhino
-
 ## Project setup
 ```
 npm install
